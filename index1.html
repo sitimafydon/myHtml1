@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1"  >
+<style type="text/css">
+/*for slide show*/
+
+*{
+box-sizing:border-box;
+}
+body{
+margin:0;
+background:repeating-radial-gradient(cyan,green 10%,yellow 15%);
+font-family:verdana;
+}   
+ul{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+background-color:#333;
+position:fixed;
+top:0;
+width:100%;
+}
+
+li{
+float:left;
+}
+
+li a{
+display:block;
+color:white;
+text-align:center;
+padding:14px 10px;
+text-decoration:none;
+background-color:55CFDE;
+}
+
+li a:hover:not(active){
+background-color:#111;
+}
+
+.active{
+background-color:#4CAF50;
+}
+.owner{
+background:linear-gradient(to bottom right,red,blue,green);
+color:white;
+border:5px solid gold;
+padding:15px;
+margin:10px;
+outline:2px solid black;
+box-shadow:5px 5px 5px black;
+}
+.one{
+background:linear-gradient(to bottom right,lightcyan,lightyellow,lightgreen);
+color:black;
+margin:15px;
+padding:2px 10px;
+}
+
+#yes{
+color:red;
+text-shadow:4px 0 0 black;
+}
+
+a{
+text-decoration:none;
+}
+
+footer{
+background-color:#22cfff;
+padding:20px;
+margin:8px;
+text-align:center;
+}
+
+form {
+background-color:#33cca5;
+padding:10px 0;
+border:3px solid #ff09ff;
+text-align:center;
+margin:0 15px;
+}
+
+input[type = text]{
+background-color:silver;
+color:red;
+height:25px;
+width:60%;
+font-size:16px;
+text-align:center;
+border: 2px solid #fff0dd;
+border-radius:6px;
+}
+
+input[type = submit]{
+padding:10px 30px;
+background-color:#00aaff;
+color:#fff;
+font-weight:bold;
+font-size:150%;
+}
+</style>
+
+<script>
+  function Greeting(){
+    var time = new Date();
+    var d = time.getHours();
+    
+    if(d == 0){
+      document.getElementById("demo").innerHTML = "Good midnight";
+    }
+    
+    else if(d > 0 && d < 6){
+      document.getElementById("demo").innerHTML = "It's still dawn how are you?"
+    }
+    
+    else if(d > 5 && d < 12){
+      document.getElementById("demo").innerHTML = "Morning hours, how is it?"
+    }
+    
+    else if(d == 12){
+      document.getElementById("demo").innerHTML = "It's noon, how are you?"
+    }
+    
+    else if(d > 13 && d < 18){
+      document.getElementById("demo").innerHTML = "It's afternoon, how are you?"
+    }
+    
+    else if(d > 17 && d < 21){
+      document.getElementById("demo").innerHTML = "It's evening, how are you?"
+    }
+    
+    else{
+      document.getElementById("demo").innerHTML = "It's night,how is it?"
+    }
+    
+}
+
+function userValidate(){
+  var x = document.forms["clientForm"]["fname"].value;
+  if(x == null || x == ""){
+    alert("First name field cannot be empty, please fill it");
+    return false;
+    }
+    
+  var y = document.forms["clientForm"]["lname"].value;
+  if(y == null || y == ""){
+    alert("Last name field cannot be empty, please fill it");
+    return false;
+  }
+  
+  var z = document.forms["clientForm"]["email"].value;
+  var atInd = z.indexOf("@");
+  var dotInd = z.indexOf(".");
+  if(atInd < 1 || dotInd < atInd+2 || dotInd+2 >= z.length){
+    alert("Invalid email please fill carefully");
+    return false;
+  }
+  
+}
+</script>
+</head>
+<body>
+<header>
+<ul>
+<li><a href="WebAssignment1.html" class="active" >Menu</a></li>
+<li><a href="WebAssignment3.html" >Contact</a></li>
+<li><a href="WebAssignment.html" >Business</a></li>
+<li><a href="WebAssignment2.html" >Services</a></li>
+<li><a href="WebAssignment4.html">Reg</a></li>
+</li>
+</ul><br><br><br>
+<h1 class="owner" >Fydon Sitima Web</h1>
+</header>
+
+<button onmouseover = "Greeting()">GREETINGS</button><br>
+<p id = "demo" style="background-color:cyan; margin:0 50px;text-align:center;" ></p>
+
+<div class="one" >
+<h2 id="yes">Who is Fydon</h2>
+<p>Biologically Fydon Sitima is a 21 year old young man whose parents are Mr Eliya Sitima
+and Mrs Fosina Sinoya. He comes from Gonile Village, TA Chitekwere Lilongwe.</p>
+<p>He is equiped with some noticeable skills including Website Designing, playing guitar,
+and also expertise in maize and soya bean farming.</p>
+<p>For more information visit <a href="WebAssignment1.html">Fydon Web</a></p>
+</div>
+
+<form action="action_page.php" id = "clientForm" onsubmit="return userValidate()" method="post" >
+<fieldset>
+<legend>Fill details to contact us</legend>
+First Name <br>
+ <input type="text" name="fname" id="fname" ><br>
+Last Name <br>
+ <input type="text" name="lname" id="lname"  ><br>
+Email <br>
+<input type="text" name="email" id="email"  ><br> <br>
+<input type="submit" >
+</fieldset>
+</form><br>
+<img src = "fydon3.jpg" width = "80%" id = "slideImage" style="display:block; margin:0 auto" onclick="slideShow()" >
+<script type="text/javascript">
+function slideShow(){
+var i = 0;
+var b = document.getElementById("slideImage");
+/*if(i == 0){
+b.src = "fydon4.jpg"
+i++
+b = document.getElementById("slideImage");
+if(i == 1){
+b.src = "fydon5.jpg"
+}
+
+}*/
+refresh:
+while(i < 3){
+if(i == 0){
+b.src = "fydon4.jpg"
+goto refresh;
+}
+else if(i == 1){
+b.src = "fydon5.jpg"
+}
+i++
+}
+
+
+}
+
+</script>
+
+<footer>
+For more information <b><a href="https://wa.me/+265980955725" >WHATSAPP</a></b>or <b><a href="https://m.facebook.com/profile.php?id=100073718471243">Facebook</a></b>
+or try <b><a href="mailto:sitimafydon@gmailcom" >Email</a></b>
+</footer>
+</body>
+</html>
