@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8" >
+<meta name="viewport" content="width = device-width, initial-scale = 1.0" >
+<title>Registering Page</title>
+<style type="text/css">
+form {
+color:white;
+border:3px solid white;
+padding:20px 10px;
+margin:20px 20px;
+border-radius:20px;
+}
+body {
+background-color:#002171;
+color:white;
+text-align:center;
+}
+label {
+text-align:right;
+}
+input[type = text ]{
+font-size:1.1em;
+border:none;
+padding:0 5px;
+}
+input[type = password ]{
+font-size:1.1em;
+border:none;
+padding:0 5px;
+}
+input[type = email ]{
+font-size:1.1em;
+border:none;
+padding:0 5px;
+}
+input[type = select ]{
+}
+input[type = submit ]{
+font-size:1.1em;
+border:none;
+background-color:#23b2ff;
+padding:1px 70px;
+font-weight:bold;
+color:white;
+}
+a{
+color:hotpink;
+}
+</style>
+<script type="text/javascript">
+  function confirmPassword(){
+    var a = document.forms.userForm.password1.value;
+    var b = document.forms["userForm"]["password2"].value;
+    
+    if(a != b){
+      alert("Passwords do not match, please try again")
+      return false;
+    }
+    
+  }
+function togglePasswordVisibility() {
+     var passwordInput1 = document.getElementById("password1");
+     var passwordInput2 = document.getElementById("password2")
+     if (passwordInput1.type === "password") {
+       passwordInput1.type = "text";
+       passwordInput2.type = "text"
+     } else {
+       passwordInput1.type = "password";
+       passwordInput2.type = "password"
+     }
+   }
+</script>
+</head>
+<body>
+<h1>Register Form</h1>
+<form method="post" id="userForm" action="action_page.php" onsubmit="return confirmPassword()" >
+<label id="firstName" >First Name</label><br>
+<input type="text" name="firstName" autofocus required="required"  ><br>
+<label id="lastName" >Last Name</label><br>
+<input type="text" name="lastName"  required="required" ><br>
+<label id="email" >Email</label><br>
+<input type="email" name="email" required="required" ><br>
+<label id="password" >Create Password</label><br>
+<input type="password" name="password" id = "password1" required="required" ><br>
+<label id="password" >Confirm Password</label><br>
+<input type="password" name="password" id ="password2" required="required" ><br>
+<input type="checkbox" onclick="togglePasswordVisibility()">Show Passowrd<br>
+<br>
+<select name="gender" >
+<option value ="hey" disabled="disabled" >Please Select Your Gender Here</option>
+<option value="male">Male</option>
+<option value="female" >Female</option>
+</select><br><br>
+<input type="submit" value="REGISTER" ><br>
+<a href="login.php" >Already Registered? Login</a>
+</form>
+</body>
+</html>
